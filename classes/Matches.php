@@ -35,6 +35,7 @@ class MatchBox
 		}
 		*/
 		$cw=$this->current_weight();
+		
 		$max=$this->Weight_Max;
 		$nw=$cw+$thing->weight;
 		if ( $max>$nw ) {
