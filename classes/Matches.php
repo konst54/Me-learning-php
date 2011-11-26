@@ -44,7 +44,6 @@ class MatchBox
 		}
 		return FALSE;
 	}
-
 	function current_weight(){
 		$count=0;
 		foreach ($this->matches as $match){
