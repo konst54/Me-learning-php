@@ -3,6 +3,7 @@ include 'classes/Match.php';
 include 'classes/Matches.php';
 $box=new MatchBox();
 $emptybox=new MatchBox(TRUE);
+$energy=10;
 for ($i = 0; $i < 20; $i++) {
 	$match=$box->get();
 	$energy-=0.1;

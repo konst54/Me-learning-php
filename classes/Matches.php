@@ -26,14 +26,17 @@ class MatchBox
  * @param Match $thing
  */
 	function add($thing){
+		if (is_array($thing)) {
+		    foreach ($thing as $t) {
+			$this->add($t);
+			$this->add($t);
+		    }
+			return;
+		}
 		if (!is_a($thing, 'Match')) {
 			return FALSE;
 		}
-	/*	if (is_array($this->$thing)) {
-			add($this->$thing[0]);
-			add($this->$thing[1]);
-		}
-		*/
+		
 		$cw=$this->current_weight();
 		
 		$max=$this->Weight_Max;
