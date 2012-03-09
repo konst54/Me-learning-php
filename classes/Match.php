@@ -2,8 +2,10 @@
 class Match {
 	var $weight;
 	var $burned;
+	var $headresource;
 	function __construct() {
 		$this->weight=0.1+rand(-3, 3)/100;
+		$this->headresource=rand(0,5);
 		$this->burned=FALSE;
 	}
 	/**
@@ -18,6 +20,7 @@ class Match {
 		if ($fate<$t) {
 			$t=$fate;
 		}
+		//TODO Stiranie golovki so snizheniem veroyatnosti podzhiganiya
 		$delta_weight=$t*0.01;
 		$energy=$t*0.1;
 		$this->weight-=$delta_weight;
