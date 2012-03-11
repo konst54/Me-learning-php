@@ -1,9 +1,13 @@
 <?php
-//include 'classes/Match.php';
-//include 'classes/Matches.php';
+include 'classes/Match.php';
+include 'classes/MatchBox.php';
 include 'classes/Room.php';
+include 'classes/Human.php';
+include 'classes/Basic.php';
 //TODO Класс исполнитель (поджигатель), xp points, культурность
 //TODO  Класс комната (температура поднимается от сжигания спичек)
+$place=new Environment();
+$firestarter=new Human();  
 $box=new MatchBox();
 $emptybox=new MatchBox(TRUE);
 $energy=10;

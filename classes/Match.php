@@ -1,7 +1,7 @@
 <?php
 class Match {
 	var $weight;
-	var $burned;
+//	var $burned;
 	var $headresource;
 	function __construct() {
 		$this->weight=0.1+rand(-3, 3)/100;
@@ -15,7 +15,10 @@ class Match {
 	 * @return Float 
 	 */
 	function burn($t=10) {
-		if ($this->burned) {return 0;}
+		if (
+		//$this->burned or 
+		$this->headresource<1
+		) {return 0;}
 		$fate=rand(0, 10);
 		if ($fate<$t) {
 			$t=$fate;
@@ -24,7 +27,8 @@ class Match {
 		$delta_weight=$t*0.01;
 		$energy=$t*0.1;
 		$this->weight-=$delta_weight;
-		$this->burned=TRUE;
+		$this->headresource=-1;
+		//$this->burned=true;
 		return $energy;
 	}
 	
