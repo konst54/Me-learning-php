@@ -6,7 +6,7 @@ class Match {
 	function __construct() {
 		$this->weight=0.1+rand(-3, 3)/100;
 		$this->headresource=rand(0,5);
-		$this->burned=FALSE;
+//		$this->burned=FALSE;
 	}
 	/**
 	 * 
@@ -23,7 +23,15 @@ class Match {
 		if ($fate<$t) {
 			$t=$fate;
 		}
+		
 		//TODO Stiranie golovki so snizheniem veroyatnosti podzhiganiya
+		$this->headresource-=1;
+		if ($this->headresource<1) 
+		{
+			
+		}
+		
+		
 		$delta_weight=$t*0.01;
 		$energy=$t*0.1;
 		$this->weight-=$delta_weight;
@@ -33,13 +41,13 @@ class Match {
 	}
 	
 	function break_match() {
-	if ($this->burned) {return $this->weight;}
+	if ($this->headresource<1) {return $this->weight;}
 	if (rand(0, 9)>8)
 	{
-		$breaked=array();
-		$breaked[0]=$this->weight/100*rand(10,90);
-		$breaked[1]=$this->weight-$breaked[0];
-		return $breaked;
+		$broken=array();
+		$broken[0]=$this->weight/100*rand(10,90);
+		$broken[1]=$this->weight-$broken[0];
+		return $broken;
 	}
 
 	}
